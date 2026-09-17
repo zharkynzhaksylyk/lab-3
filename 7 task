@@ -1,0 +1,35 @@
+class Library:
+    def __init__(self, name):
+        self.name = name
+        self.books = []
+        self.address = "Алматы" 
+    def add_book(self, title):
+        self.books.append(title)
+        print('Книга "' + title + '" добавлена.')
+
+    def remove_book(self, title):
+        if title in self.books:
+            self.books.remove(title)
+            print('Книга "' + title + '" удалена.')
+        else:
+            print('Книга "' + title + '" не найдена.')
+
+    def find_book(self, title):
+        if title in self.books:
+            print('Книга "' + title + '" найдена.')
+            return True
+        else:
+            print('Книга "' + title + '" не найдена.')
+            return False
+
+    def show_books(self):
+        print("\nБиблиотека:", self.name)
+
+        if len(self.books) > 0:
+            for book in self.books:
+                print("-", book)
+        else:
+            print("Библиотека пуста.")
+
+    def change_address(self, address):
+        self.address = address
