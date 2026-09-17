@@ -1,0 +1,31 @@
+class BankAccount:
+    def __init__(self, owner, balance=0):
+        self.owner = owner
+        self.__balance = balance
+        self.currency = "₸"  
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.__balance += amount
+            print("Счёт пополнен на", amount, self.currency)
+        else:
+            print("Сумма должна быть больше 0.")
+
+    def get_balance(self):
+        return self.__balance
+
+    def withdraw(self, amount):
+        if amount <= 0:
+            print("Сумма должна быть больше 0.")
+        elif amount <= self.__balance:
+            self.__balance -= amount
+            print("Снято:", amount, self.currency)
+        else:
+            print("Недостаточно средств.")
+
+    def show_info(self):
+        print("Владелец:", self.owner)
+        print("Баланс:", self.__balance, self.currency)
+
+    def change_currency(self, currency):
+        self.currency = currency
